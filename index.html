@@ -791,6 +791,19 @@
   </div>
 </button>
 
+<!-- Booking Redirect Listener -->
+<script>
+  // Redirect to thank-you page after successful Cal.com booking
+  Cal.ns["friction-audit"]("on", {
+    action: "bookingSuccessful",
+    callback: (e) => {
+      setTimeout(() => {
+        window.location.href = '/thank-you.html';
+      }, 1500);
+    }
+  });
+</script>
+
 <!-- Vercel Web Analytics -->
 <script defer src="/_vercel/insights/script.js"></script>
 </body>

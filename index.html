@@ -27,13 +27,13 @@
     .section-label{font-family:var(--font-body);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
     .section-heading{font-family:var(--font-head);font-weight:800;font-size:clamp(28px,4.5vw,42px);line-height:1.2;color:var(--white);margin-bottom:16px}
 
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:15px 30px;background:var(--accent);color:var(--white);font-family:var(--font-head);font-size:16px;font-weight:700;border-radius:10px;border:none;cursor:pointer;transition:box-shadow .25s,transform .2s;text-decoration:none}
+    .btn{display:inline-flex;color:#fff!important;align-items:center;gap:8px;padding:15px 30px;background:var(--accent);color:var(--white);font-family:var(--font-head);font-size:16px;font-weight:700;border-radius:10px;border:none;cursor:pointer;transition:box-shadow .25s,transform .2s;text-decoration:none}
     .btn:hover{box-shadow:0 0 25px rgba(232,69,60,.4),0 0 60px rgba(232,69,60,.18);transform:translateY(-2px)}
     .btn-sm{padding:11px 22px;font-size:14px}
 
     .btn-ghost{background:transparent;border:1.5px solid rgba(232,69,60,.5);color:var(--accent);font-family:var(--font-head);font-size:15px;font-weight:700;padding:14px 28px;border-radius:10px;display:inline-flex;align-items:center;transition:border-color .2s,background .2s,transform .2s;text-decoration:none}
     .btn-ghost:hover{border-color:var(--accent);background:rgba(232,69,60,.08);transform:translateY(-2px)}
-    .reveal-item{opacity:0;transform:translateY(40px);transition:opacity 0.7s cubic-bezier(0.2,0.8,0.2,1), transform 0.7s cubic-bezier(0.2,0.8,0.2,1)}
+    .reveal-item{opacity:0;transform:translateY(40px);transition:all 0.7s ease-out}
     .reveal-item.revealed{opacity:1;transform:translateY(0)}
     .cta-container{margin-top:48px;display:flex;justify-content:center;width:100%}
 
@@ -84,7 +84,7 @@
     .problem-num{font-family:var(--font-head);font-size:14px;font-weight:700;color:var(--accent);letter-spacing:.08em;margin-bottom:12px;transform-origin:left center;transform:scale(0.85);transition:transform 0.7s cubic-bezier(0.2,0.8,0.2,1)}
     .problem-card.revealed .problem-num{transform:scale(1)}
     .problem-text{font-size:18px;font-weight:500;color:var(--white);line-height:1.6}
-    .problem-footer{text-align:center;font-family:var(--font-head);font-size:22px;font-weight:700;color:var(--white);max-width:820px;margin:0 auto;position:relative;border-radius:18px;padding:3px;background:var(--card-bg2)}
+    .problem-footer{text-align:center;font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--white);max-width:820px;margin:0 auto;position:relative;border-radius:18px;padding:3px;background:var(--card-bg2)}
     .problem-footer::before{content:'';position:absolute;inset:-2px;border-radius:20px;background:conic-gradient(from var(--angle,0deg),transparent 40%,var(--accent) 50%,var(--amber) 55%,transparent 65%);animation:spin 4s linear infinite}
     @supports not (background: conic-gradient(from 0deg, red, blue)){ .problem-footer::before{background:linear-gradient(var(--accent),var(--amber));opacity:.6} }
     .problem-footer::after{content:'';position:absolute;inset:2px;border-radius:16px;background:var(--card-bg2);z-index:0}
@@ -126,7 +126,7 @@
     .meet-grid{display:grid;grid-template-columns:1fr 1.45fr;gap:72px;align-items:center;position:relative;z-index:1}
 
     /* animated portrait frame */
-    .meet-frame{position:relative;display:flex;justify-content:center}
+    .meet-frame{position:relative;display:flex;justify-content:center;max-width:82%;margin:0 auto}
     .meet-frame-inner{position:relative;border-radius:18px;padding:3px;background:var(--card-bg2);overflow:hidden;display:flex;align-items:center;justify-content:center;height:100%}
     .meet-frame-inner::before{content:'';position:absolute;inset:-2px;border-radius:20px;background:conic-gradient(from var(--angle,0deg),transparent 40%,var(--accent) 50%,var(--amber) 55%,transparent 65%);animation:spin 4s linear infinite}
     @property --angle{syntax:'<angle>';initial-value:0deg;inherits:false}
@@ -136,7 +136,7 @@
       .meet-frame-inner::before{background:linear-gradient(var(--accent),var(--amber));opacity:.6}
     }
     .meet-frame-inner::after{content:'';position:absolute;inset:2px;border-radius:16px;background:var(--card-bg2);z-index:0}
-    .meet-photo{position:relative;z-index:1;width:100%;height:100%;min-height:480px;border-radius:16px;object-fit:cover;object-position:center top;transform:scale(0.85);display:block;filter:drop-shadow(0 20px 50px rgba(0,0,0,.55))}
+    .meet-photo{position:relative;z-index:1;width:100%;height:100%;min-height:400px;border-radius:16px;object-fit:cover;object-position:70% center;display:block;filter:drop-shadow(0 20px 50px rgba(0,0,0,.55))}
     .meet-frame-inner{overflow:hidden}
 
     .meet-text{}
@@ -218,39 +218,51 @@
     .footer-links a:hover{color:var(--white)}
 
     
-    /* CAL.COM OVERRIDES */
-    [data-cal-namespace="friction-audit"] button, .cal-floating-button, [class*="cal-floating"] {
-      background-color: #E8453C !important;
-      bottom: 5vh !important;
-      transform: scale(0.82) !important;
-      transform-origin: bottom right !important;
-      position: relative !important;
-      overflow: visible !important;
-      border: 3px solid transparent !important;
-      background-clip: padding-box !important;
-      z-index: 10000 !important;
-    }
-    [data-cal-namespace="friction-audit"] button * { color: #000 !important; fill: #000 !important; font-weight: 700 !important; stroke: #000 !important; }
+
+
     
-    [data-cal-namespace="friction-audit"] button::before, .cal-floating-button::before {
-      content: '';
-      position: absolute;
-      inset: -3px; 
-      border-radius: inherit;
-      background: conic-gradient(from var(--angle, 0deg), transparent 40%, var(--accent) 50%, var(--amber) 55%, transparent 65%);
-      animation: spin 4s linear infinite;
-      z-index: -2 !important;
-      pointer-events: none;
+    /* CUSTOM FLOATING BUTTON */
+    .custom-float-wrap {
+      position: fixed;
+      bottom: 5vh;
+      right: 24px;
+      z-index: 9999;
+      cursor: pointer;
+      border-radius: 100px;
+      padding: 3px;
+      background: var(--card-bg2);
+      transform: scale(0.85);
+      transform-origin: bottom right;
+      transition: transform 0.2s;
     }
-    [data-cal-namespace="friction-audit"] button::after, .cal-floating-button::after {
+    .custom-float-wrap:hover { transform: scale(0.88); }
+    .custom-float-wrap::before {
       content: '';
       position: absolute;
       inset: -1px;
-      background-color: #E8453C;
-      border-radius: inherit;
-      z-index: -1 !important;
-      pointer-events: none;
+      border-radius: 100px;
+      background: conic-gradient(from var(--angle, 0deg), transparent 40%, var(--accent) 50%, var(--amber) 55%, transparent 65%);
+      animation: spin 3.5s linear infinite;
+      z-index: 0;
     }
+    .custom-float-wrap::after {
+      content: ''; position: absolute; inset: 2px; border-radius: 100px; background: #E8453C; z-index: 0;
+    }
+    .custom-float-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #E8453C;
+      color: #fff;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 16px;
+      padding: 14px 24px;
+      border-radius: 100px;
+    }
+    @media(max-width:768px) { .custom-float-wrap { transform: scale(0.75); right: 16px; bottom: 20px; } .custom-float-wrap:hover { transform: scale(0.75); } }
 
     /* RESPONSIVE */
     @media(max-width:900px){
@@ -266,11 +278,13 @@
     @media(max-width:768px){
       #hero{padding:130px 0 64px}
       #problem,#how-it-works,#case-studies,#meet,#what-you-get,#pricing,#faq,#booking{padding:64px 0}
-      .trust-bar{flex-direction:column;align-items:flex-start;gap:20px;padding-left:12px}
-      .trust-item{align-items:flex-start;text-align:left;gap:2px}
-      .trust-num{font-size:22px}
-      .trust-label{font-size:16px}
+      .trust-bar{flex-direction:column;align-items:flex-start;gap:24px;padding-left:16px}
+      .trust-item{align-items:flex-start;text-align:left;gap:4px}
+      .trust-num{font-size:28px}
+      .trust-label{font-size:17px;font-weight:500;color:#ddd}
       .trust-divider{display:none}
+      .problem-footer{font-size:16px}
+      .problem-footer-content .btn{font-size:14px;padding:12px 24px}
     }
     @media(max-width:600px){
       .hero-headline{font-size:34px}
@@ -376,7 +390,7 @@
     <div class="problem-footer reveal-item">
       <div class="problem-footer-content">
         <p>You don't need another tool.<br>You need someone to build the system for you.</p>
-        <a href="#booking" class="btn-ghost">Save +360 Hours Per Year →</a>
+        <a href="#booking" class="btn">Save +360 Hours Per Year →</a>
       </div>
     </div>
   </div>
@@ -465,7 +479,7 @@
       </div>
     </div>
     <p class="cs-disclaimer">Case studies include both named clients (with permission) and anonymized composites representing typical results.</p>
-    <div class="cta-container"><a href="#booking" class="btn-ghost">Save +360 Hours Per Year →</a></div>
+    <div class="cta-container"><a href="#booking" class="btn">Save +360 Hours Per Year →</a></div>
   </div>
 </section>
 
@@ -565,7 +579,7 @@
           </li>
         </ul>
         <div class="pricing-cta">
-          <a href="#booking" class="btn btn-outline">Book My Free Audit →</a>
+          <a href="#booking" class="btn">Book My Free Audit →</a>
         </div>
       </div>
 
@@ -649,7 +663,7 @@
       </div>
 
     </div>
-    <div class="cta-container"><a href="#booking" class="btn-ghost">Save +360 Hours Per Year →</a></div>
+    <div class="cta-container"><a href="#booking" class="btn">Save +360 Hours Per Year →</a></div>
   </div>
 </section>
 
@@ -693,11 +707,16 @@
   
   /* SCROLL REVEAL ANIMATIONS */
   const revealElements = document.querySelectorAll('.reveal-item');
-  const revealOptions = { threshold: 0.25, rootMargin: "0px 0px -50px 0px" };
+  const revealOptions = { threshold: 0.2, rootMargin: "0px 0px -20px 0px" };
   const revealObserver = new IntersectionObserver((entries, observer) => {
+    // Add staggering if multiple enter at once, but primarily base on intersection
+    let delay = 0;
     entries.forEach(entry => {
       if(entry.isIntersecting) {
-        entry.target.classList.add('revealed');
+        setTimeout(() => {
+          entry.target.classList.add('revealed');
+        }, delay);
+        delay += 150; // stagger 150ms
         observer.unobserve(entry.target);
       }
     });
@@ -757,10 +776,18 @@
 <script type="text/javascript">
   (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
   Cal("init", "friction-audit", {origin:"https://app.cal.com"});
-  Cal.ns["friction-audit"]("floatingButton", {"calLink":"sangeet-seth-vcxo8u/friction-audit","config":{"layout":"month_view","useSlotsViewOnSmallScreen":"true"},"buttonText":"Book your Audit"});
-  Cal.ns["friction-audit"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+    Cal.ns["friction-audit"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
 </script>
 <!-- Cal floating-popup embed code ends -->
+
+
+<!-- CUSTOM FLOATING CAL BUTTON -->
+<div class="custom-float-wrap" onclick="Cal.ns['friction-audit']('ui', {'command':'open', 'calLink':'sangeet-seth-vcxo8u/friction-audit'})">
+  <div class="custom-float-inner">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+    Book your Audit
+  </div>
+</div>
 
 </body>
 </html>
